@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Nối Ống Nước</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="Bootstrap/CSS/bootstrap.min.css" />
+    <script src="Bootstrap/JS/bootstrap.bundle.min.js"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="CSS/TrangChu.css" />
+  </head>
+  <body>
+    <!-- TÊN GAME -->
+    <div class="TenGame">WATER PIPE CONNECTION</div>
+
+    <!-- NÚT ĐĂNG NHẬP/ĐĂNG KÝ -->
+    <div class="NutDangNhap am-thanh-click" id="nutDangNhap">
+      Login | Register
+    </div>
+
+    <!-- BẢNG ĐĂNH NHẬP/ĐĂNG KÝ -->
+    <div class="KhungDangNhap" id="khungDangNhap">
+      <!-- Bảng Đăng Nhập -->
+      <div class="BangDangNhap">
+        <div class="DangNhap-Ten">LOGIN</div>
+
+        <!-- Tên Tài Khoản -->
+        <div class="DangNhap-TenTK">
+          Username
+          <input placeholder="Enter your username" />
+        </div>
+
+        <!-- Mật Khẩu -->
+        <div class="DangNhap-MatKhau">
+          Password
+          <div class="MatKhau">
+            <input
+              type="password"
+              placeholder="Enter your password"
+              id="matKhau_DnPass"
+            />
+            <img
+              src="Images/svg/Eye/EyeClose.svg"
+              class="MatKhau-Eye"
+              id="matKhau_DnEye"
+            />
+          </div>
+        </div>
+
+        <!-- Nút Đăng Nhập -->
+        <div class="DangNhap-Nut">Sign In</div>
+
+        <!-- Quên mật khẩu & Đăng ký -->
+        <div class="DangNhap-ThongTin">
+          <a href="#" id="linkQuenMatKhau">Forgot your password?</a>
+          <div>
+            Don't have an account? <a href="#" id="linkDangKy">Sign up</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bảng Đăng Ký -->
+      <div class="BangDangKy">
+        <div class="DangKy-Ten">REGISTER</div>
+
+        <!-- Tên Tài Khoản -->
+        <div class="DangKy-TenTK">
+          Username
+          <input placeholder="Enter your username" />
+        </div>
+
+        <!-- Mật Khẩu -->
+        <div class="DangKy-MatKhau">
+          Password
+          <div class="MatKhau">
+            <input
+              type="password"
+              placeholder="Enter your password"
+              id="matKhau_DkPass"
+            />
+            <img
+              src="Images/svg/Eye/EyeClose.svg"
+              class="MatKhau-Eye"
+              id="matKhau_DkEye"
+            />
+          </div>
+        </div>
+
+        <!-- Xác nhận Mật Khẩu -->
+        <div class="DangKy-XnMatKhau">
+          Confirm Password
+          <div class="MatKhau">
+            <input
+              type="password"
+              placeholder="Confirm your password"
+              id="matKhau_XnPass"
+            />
+            <img
+              src="Images/svg/Eye/EyeClose.svg"
+              class="MatKhau-Eye"
+              id="matKhau_XnEye"
+            />
+          </div>
+        </div>
+
+        <!-- Nút Đăng Ký -->
+        <div class="DangKy-Nut">Sign Up</div>
+
+        <!-- Đăng nhập -->
+        <div class="DangKy-ThongTin">
+          <div>
+            Already have an account? <a href="#" id="linkDangNhap">Sign in</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="DangNhap-NutThoat am-thanh-click" id="dangNhap_NutThoat">
+        <img src="Images/svg/Nut/Thoat.svg" />
+      </div>
+    </div>
+
+    <!-- NÚT PLAY -->
+    <div class="NutPlay am-thanh-click" id="nutPlay">
+      <img src="Images/svg/Nut/BatDau.svg" />
+    </div>
+
+    <!-- BẢNG PLAY -->
+    <div class="KhungPlay" id="khungPlay">
+      <div class="BangPlay">
+        <!-- Chế Độ -->
+        <div class="BangPlay-CheDo">
+          <div class="CheDo-Ten">Game Mode</div>
+          <div class="CheDo-TuyChon">
+            <div class="CheDo-Player" id="cheDoPlayer">Player</div>
+            <div class="CheDo-AI" id="cheDoAI">AI</div>
+          </div>
+        </div>
+
+        <!-- Bản Đồ & Độ Khó -->
+        <div class="BangPlay-BanDo-DoKho">
+          <!-- Bản Đồ -->
+          <div class="BangPlay-BanDo">
+            <div class="BanDo-Ten">Map Options</div>
+            <div class="BanDo-TuyChon">
+              <!-- Random -->
+              <div class="BanDo-Random">
+                <input type="radio" id="banDo_Random" name="banDo_TuyChon" />
+                <label for="banDo_Random">Random</label>
+              </div>
+
+              <!-- Custom -->
+              <div class="BanDo-Custom">
+                <input type="radio" id="banDo_Custom" name="banDo_TuyChon" />
+                <label for="banDo_Custom">Custom</label>
+
+                <div class="Custom-DanhSach" id="customMapDropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="dropdownMapSize"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    3x8
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMapSize">
+                    <li class="dropdown-item">3x8</li>
+                    <li class="dropdown-item">3x10</li>
+                    <li class="dropdown-item">3x12</li>
+                    <li class="dropdown-item">5x4</li>
+                    <li class="dropdown-item">5x6</li>
+                    <li class="dropdown-item">5x8</li>
+                    <li class="dropdown-item">5x10</li>
+                    <li class="dropdown-item">5x12</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Độ Khó -->
+          <div class="BangPlay-DoKho">
+            <div class="DoKho-Ten">Difficulty</div>
+            <div class="DoKho-TuyChon">
+              <!-- Easy -->
+              <div class="DoKho-Easy">
+                <input type="radio" id="doKho_Easy" name="doKho_TuyChon" />
+                <label for="doKho_Easy">Easy</label>
+              </div>
+
+              <!-- Medium -->
+              <div class="DoKho-Medium">
+                <input type="radio" id="doKho_Medium" name="doKho_TuyChon" />
+                <label for="doKho_Medium">Medium</label>
+              </div>
+
+              <!-- Hard -->
+              <div class="DoKho-Hard">
+                <input type="radio" id="doKho_Hard" name="doKho_TuyChon" />
+                <label for="doKho_Hard">Hard</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nút Thoát -->
+      <div class="Play-NutThoat am-thanh-click" id="play-NutThoat">
+        <img src="Images/svg/Nut/Thoat.svg" />
+      </div>
+
+      <!-- Nút Play -->
+      <a
+        href="TrangGame.html"
+        class="Play-NutPlay am-thanh-click"
+        id="play-NutBatDau"
+      >
+        <img src="Images/svg/Nut/BatDau.svg" />
+      </a>
+    </div>
+
+    <!-- NÚT CÀI ĐẶT -->
+    <div class="NutCaiDat am-thanh-click" id="nutCaiDat">
+      <img src="Images/svg/Nut/CaiDat.svg" />
+    </div>
+
+    <!-- BẢNG CÀI ĐẶT -->
+    <div class="KhungCaiDat" id="khungCaiDat">
+      <div class="BangCaiDat">
+        <div class="CaiDat-NutTieng" id="nutTieng">
+          <img src="Images/svg/Nut/MoTieng.svg" id="imgTieng" />
+        </div>
+
+        <div class="CaiDat-NutNhac" id="nutNhac">
+          <img src="Images/svg/Nut/MoNhac.svg" id="imgNhac" />
+        </div>
+      </div>
+
+      <div class="CaiDat-NutThoat am-thanh-click" id="caiDat_NutThoat">
+        <img src="Images/svg/Nut/Thoat.svg" />
+      </div>
+    </div>
+
+    <!-- NÚT XẾP HẠNG -->
+    <div class="NutXepHang am-thanh-click" id="nutXepHang">
+      <img src="Images/svg/Nut/XepHang.svg" />
+    </div>
+
+    <!-- BẢNG XẾP HẠNG -->
+    <div class="KhungXepHang" id="khungXepHang">
+      <div class="BangXepHang">
+        <!-- Tên Bảng -->
+        <div class="XepHang-Ten">LEADERBOARD</div>
+
+        <!-- Thông Tin Bảng -->
+        <div class="XepHang-ThongTin">
+          <!-- Hạng -->
+          <div class="XepHang-Hang">
+            <div class="Hang-Ten">Rank</div>
+            <p>1</p>
+            <p>2</p>
+          </div>
+
+          <!-- Tên người chơi -->
+          <div class="XepHang-TenNguoiChoi">
+            <div class="TenNguoiChoi-Ten">Player</div>
+            <p>...</p>
+            <p>...</p>
+          </div>
+
+          <!-- Điểm cao nhất -->
+          <div class="XepHang-DiemCaoNhat">
+            <div class="DiemCaoNhat-Ten">High Score</div>
+            <p>...</p>
+            <p>...</p>
+          </div>
+
+          <!-- Tỉ lệ thắng -->
+          <div class="XepHang-TiLeThang">
+            <div class="TiLeThang-Ten">Win Rate</div>
+            <p>...%</p>
+            <p>...%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="XepHang-NutThoat am-thanh-click" id="xepHang_NutThoat">
+        <img src="Images/svg/Nut/Thoat.svg" />
+      </div>
+    </div>
+
+    <!-- SỐ SAO CAO NHẤT -->
+    <div class="CupSao">
+      0
+      <img src="Images/CupSao.png" />
+    </div>
+
+    <!-- LỚP PHỦ -->
+    <div class="LopPhu_BangDangNhap" id="lopPhu_BangDangNhap"></div>
+    <div class="LopPhu_BangPlay" id="lopPhu_BangPlay"></div>
+    <div class="LopPhu_BangCaiDat" id="lopPhu_BangCaiDat"></div>
+    <div class="LopPhu_BangXepHang" id="lopPhu_BangXepHang"></div>
+
+    <!-- ÂM THANH -->
+    <audio id="amThanhClick">
+      <source src="Sounds/TiengClick.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="JS/TrangChu/TrangChu.js"></script>
+    <script src="JS/TrangChu/DangnhapDangky.js"></script>
+  </body>
+</html>
